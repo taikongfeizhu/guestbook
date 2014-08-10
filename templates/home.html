@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>{{title}}</title>
+     {% include "include/head.html" %}
+</head>
+<body>
+    <h2>{{title}}</h2>
+    <ul>
+        {% for message in messages %}
+            <li>{{escape(message)}}</li>
+        {% end %}
+    </ul>
+    <hr/>
+    <div>
+        <b>info:</b>{{ info['title']}}<br/>
+        <b>base:</b>{{ info['base'] }}<br/>
+        <b>author:</b>{{ info['author'] }}<br/>
+    </div>
+    <hr/>
+    <div>
+        {% if info['title']=="from tornado" %}
+        tornado success !
+        {% elif info['title']=="from django"%}
+        django success !
+        {% else %}
+        none !
+        {% end %}
+    </div>
+    <hr/>
+
+    <div>
+        {{add(num[0],num[1]) }}
+    </div>
+    <hr/>
+
+    <div>
+        {{datetime}}
+    </div>
+    <div>
+        <form>
+            {% module xsrf_form_html() %}
+            <input type="button" id="postData" value="postData" class="btn btn-default"/>
+            <input type="button" id="getData" value="getData" class="btn btn-default"/>
+        </form>
+    </div>
+    <script data-main="{{ static_url(WEB_RRESOURCE_DIR +'/js/home.js') }}" src="{{ static_url(WEB_RRESOURCE_DIR +'/js/require.min.js') }}" type="text/javascript"></script>
+    </body>
+</html>
