@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>{{title}}</title>
+     {% include "include/default.html" %}
+</head>
+<body>
+    <h2>{{title}}</h2>
+    <div>{{message}}</div>
+    <script data-main="{{ static_url(WEB_RRESOURCE_DIR +'/js/home.js') }}" src="{{ static_url(WEB_RRESOURCE_DIR +'/js/require.min.js') }}" type="text/javascript"></script>
+    </body>
+</html>
